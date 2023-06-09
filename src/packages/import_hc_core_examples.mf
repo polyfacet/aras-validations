@@ -1,0 +1,6 @@
+<imports>
+  <package name="se.hilleconsultit.hc_core_examples" path="hc_core_examples\Import">
+    <dependson name="se.hilleconsultit.hc_core" />
+  </package>
+  <package name="se.hilleconsultit.hc_core" path="hc_core\Import" />
+</imports>

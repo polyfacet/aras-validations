@@ -1,0 +1,12 @@
+<AML>
+   <Item type="Form Event" id="02D7064B78EF44119BDA48C65BA3D431" action="add">
+    <form_event>onformpopulated</form_event>
+    <related_id keyed_name="HC_ShowValidationOnForm" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>HC_ShowValidationOnForm</name>
+     </Item>
+    </related_id>
+    <sort_order>1024</sort_order>
+    <source_id keyed_name="Part" type="Form">CAF99D0A8E6E44E9A681C38015FACE91</source_id>
+   </Item>
+</AML>

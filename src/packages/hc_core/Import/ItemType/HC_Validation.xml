@@ -1,0 +1,190 @@
+﻿<AML>
+ <Item type="ItemType" id="6965B336EFA149BDBF43B5EF82F51523" action="add">
+  <allow_private_permission>1</allow_private_permission>
+  <auto_search>0</auto_search>
+  <enforce_discovery>1</enforce_discovery>
+  <hide_where_used>0</hide_where_used>
+  <implementation_type>federated</implementation_type>
+  <instance_data>HC_VALIDATION</instance_data>
+  <is_dependent>0</is_dependent>
+  <is_relationship>0</is_relationship>
+  <is_versionable>0</is_versionable>
+  <label xml:lang="en">Validation</label>
+  <label_plural xml:lang="en">Validations</label_plural>
+  <revisions keyed_name="Default" type="Revision">7FE395DD8B9F4E1090756A34B733D75E</revisions>
+  <show_parameters_tab>1</show_parameters_tab>
+  <structure_view>tabs off</structure_view>
+  <unlock_on_logout>0</unlock_on_logout>
+  <use_src_access>0</use_src_access>
+  <name>HC_Validation</name>
+  <Relationships>
+   <Item type="Property" id="9F4106AA99634CC890D090BE55E5D5DF" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>150</column_width>
+    <data_type>string</data_type>
+    <is_federated>0</is_federated>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Description</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3072</sort_order>
+    <source_id keyed_name="HC_Validation" type="ItemType" name="HC_Validation">6965B336EFA149BDBF43B5EF82F51523</source_id>
+    <stored_length>256</stored_length>
+    <track_history>0</track_history>
+    <name>description</name>
+   </Item>
+   <Item type="Property" id="B6DE7540462341548D1857EEBF99CAF4" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>50</column_width>
+    <data_type>image</data_type>
+    <is_federated>0</is_federated>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Image</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3010</sort_order>
+    <source_id keyed_name="HC_Validation" type="ItemType" name="HC_Validation">6965B336EFA149BDBF43B5EF82F51523</source_id>
+    <track_history>0</track_history>
+    <name>image</name>
+   </Item>
+   <Item type="Property" id="B4CBE5F7A88B480D84FAD52C26FFAFF0" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="HC_Validation" type="ItemType" name="HC_Validation">6965B336EFA149BDBF43B5EF82F51523</data_source>
+    <data_type>item</data_type>
+    <is_federated>0</is_federated>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">Item</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3328</sort_order>
+    <source_id keyed_name="HC_Validation" type="ItemType" name="HC_Validation">6965B336EFA149BDBF43B5EF82F51523</source_id>
+    <track_history>0</track_history>
+    <name>item</name>
+   </Item>
+   <Item type="Property" id="ABBE6FD1946247099F295C309181B0CF" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>string</data_type>
+    <is_federated>0</is_federated>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Item Number</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3456</sort_order>
+    <source_id keyed_name="HC_Validation" type="ItemType" name="HC_Validation">6965B336EFA149BDBF43B5EF82F51523</source_id>
+    <stored_length>64</stored_length>
+    <track_history>0</track_history>
+    <name>item_number</name>
+   </Item>
+   <Item type="Property" id="435532150BDD4415A125DBA2CD078331" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>80</column_width>
+    <data_type>string</data_type>
+    <is_federated>0</is_federated>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Item Type</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3400</sort_order>
+    <source_id keyed_name="HC_Validation" type="ItemType" name="HC_Validation">6965B336EFA149BDBF43B5EF82F51523</source_id>
+    <stored_length>64</stored_length>
+    <track_history>0</track_history>
+    <name>item_type</name>
+   </Item>
+   <Item type="Property" id="534656CAE6B4427BB7216F54E193C4A3" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>300</column_width>
+    <data_type>text</data_type>
+    <is_federated>0</is_federated>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Long Description</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3080</sort_order>
+    <source_id keyed_name="HC_Validation" type="ItemType" name="HC_Validation">6965B336EFA149BDBF43B5EF82F51523</source_id>
+    <track_history>0</track_history>
+    <name>long_description</name>
+   </Item>
+   <Item type="Property" id="FF978C69A0E64BCAA4BFB252E0D98FD9" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>80</column_width>
+    <data_source keyed_name="HC_ValidationTypes">DDB35C31F03241C2BCC326B59CA6A714</data_source>
+    <data_type>list</data_type>
+    <is_federated>0</is_federated>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Type</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3020</sort_order>
+    <source_id keyed_name="HC_Validation" type="ItemType" name="HC_Validation">6965B336EFA149BDBF43B5EF82F51523</source_id>
+    <stored_length>256</stored_length>
+    <track_history>0</track_history>
+    <name>validation_type</name>
+   </Item>
+   <Item type="View" id="D30ABF2014A941DB8EF4F810F23151D2" action="add">
+    <client>js</client>
+    <related_id keyed_name="HC_Validation" type="Form">C91CB702E71A466EBDA1DA94DA85BFF2</related_id>
+    <role keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </role>
+    <show_ssvc>0</show_ssvc>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="HC_Validation" type="ItemType" name="HC_Validation">6965B336EFA149BDBF43B5EF82F51523</source_id>
+    <type>default</type>
+   </Item>
+   <Item type="Can Add" id="A433732899494DD4B70319A72559973F" action="add">
+    <can_add>1</can_add>
+    <related_id keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="HC_Validation" type="ItemType" name="HC_Validation">6965B336EFA149BDBF43B5EF82F51523</source_id>
+   </Item>
+   <Item type="Allowed Permission" id="11A01E023AE147D4B6C20C8449322BC9" action="add">
+    <is_default>1</is_default>
+    <related_id keyed_name="Default Access" type="Permission">9122CD065CF04141B8EFE263FC80BEA4</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="HC_Validation" type="ItemType" name="HC_Validation">6965B336EFA149BDBF43B5EF82F51523</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

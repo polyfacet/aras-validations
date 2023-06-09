@@ -1,0 +1,28 @@
+﻿<AML>
+ <Item type="List" id="DDB35C31F03241C2BCC326B59CA6A714" action="add">
+  <name>HC_ValidationTypes</name>
+  <Relationships>
+   <Item type="Value" id="2272AEA1BFFF46FBAD9ED786A4139F73" action="add">
+    <inactive>0</inactive>
+    <label xml:lang="en">Error</label>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="HC_ValidationTypes" type="List">DDB35C31F03241C2BCC326B59CA6A714</source_id>
+    <value>Error</value>
+   </Item>
+   <Item type="Value" id="601F233393474E68AF98EB44D2FAA1B4" action="add">
+    <inactive>0</inactive>
+    <label xml:lang="en">Warning</label>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="HC_ValidationTypes" type="List">DDB35C31F03241C2BCC326B59CA6A714</source_id>
+    <value>Warning</value>
+   </Item>
+   <Item type="Value" id="6FE8BCEA565349BBBB718CCF60CBDD89" action="add">
+    <inactive>0</inactive>
+    <label xml:lang="en">Info</label>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="HC_ValidationTypes" type="List">DDB35C31F03241C2BCC326B59CA6A714</source_id>
+    <value>Info</value>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

@@ -1,0 +1,55 @@
+﻿<AML>
+ <Item type="RelationshipType" id="30FE28ABFEF84F0A92E028998A332C63" action="add" dependencyLevel="0">
+  <auto_search>1</auto_search>
+  <behavior>float</behavior>
+  <copy_permissions>0</copy_permissions>
+  <create_related>0</create_related>
+  <hide_in_all>0</hide_in_all>
+  <inc_rel_key_name>1</inc_rel_key_name>
+  <inc_related_key_name>1</inc_related_key_name>
+  <is_list_type>0</is_list_type>
+  <label xml:lang="en">Validations</label>
+  <new_show_related>0</new_show_related>
+  <related_id keyed_name="HC_Validation" type="ItemType" name="HC_Validation">6965B336EFA149BDBF43B5EF82F51523</related_id>
+  <related_notnull>0</related_notnull>
+  <related_option>2</related_option>
+  <relationship_id keyed_name="HC_Part_Validations" type="ItemType" name="HC_Part_Validations">
+   <Item type="ItemType" id="2D6615210613451AB2FB95442CAE2D30" action="add">
+    <allow_private_permission>1</allow_private_permission>
+    <auto_search>0</auto_search>
+    <enforce_discovery>0</enforce_discovery>
+    <hide_where_used>0</hide_where_used>
+    <implementation_type>table</implementation_type>
+    <instance_data>HC_PART_VALIDATIONS</instance_data>
+    <is_dependent>0</is_dependent>
+    <is_relationship>1</is_relationship>
+    <is_versionable>0</is_versionable>
+    <revisions keyed_name="Default" type="Revision">7FE395DD8B9F4E1090756A34B733D75E</revisions>
+    <show_parameters_tab>1</show_parameters_tab>
+    <structure_view>tabs off</structure_view>
+    <unlock_on_logout>0</unlock_on_logout>
+    <use_src_access>1</use_src_access>
+    <name>HC_Part_Validations</name>
+    <Relationships>
+     <Item type="Server Event" id="0AA57B2306FB4442A5C828F2798A7555" action="add">
+      <event_version>version_1</event_version>
+      <is_required>0</is_required>
+      <related_id keyed_name="HC_PartGetValidations" type="Method">
+       <Item type="Method" action="get" select="id">
+        <name>HC_PartGetValidations</name>
+       </Item>
+      </related_id>
+      <server_event>onGet</server_event>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="HC_Part_Validations" type="ItemType" name="HC_Part_Validations">2D6615210613451AB2FB95442CAE2D30</source_id>
+     </Item>
+    </Relationships>
+   </Item>
+  </relationship_id>
+  <sort_order>130</sort_order>
+  <source_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</source_id>
+  <name>HC_Part_Validations</name>
+ </Item>
+ <Item type="View" action="delete" where="source_id='2D6615210613451AB2FB95442CAE2D30'" />
+ <Item type="Form" action="delete" where="name='HC_Part_Validations'" />
+</AML>

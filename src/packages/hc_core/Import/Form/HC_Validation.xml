@@ -1,0 +1,15 @@
+﻿<AML>
+ <Item type="Form" id="C91CB702E71A466EBDA1DA94DA85BFF2" action="add">
+  <height>234</height>
+  <stylesheet><![CDATA[../styles/default.css]]></stylesheet>
+  <width>699</width>
+  <name>HC_Validation</name>
+  <Relationships>
+   <Item type="Body" id="C33C3B9EB00142EB98327100C4B7069E" action="add">
+    <bg_color>#FFFFFF</bg_color>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="HC_Validation" type="Form">C91CB702E71A466EBDA1DA94DA85BFF2</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

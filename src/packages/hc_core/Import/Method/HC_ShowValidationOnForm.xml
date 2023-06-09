@@ -1,0 +1,159 @@
+﻿<AML>
+ <Item type="Method" id="2BAE4C309BDD4A65BE0E23390A5FC019" action="add">
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[// Generic method to show validations on form. (onFormPopulated)
+// Each implmenataion needs to be implemented at the top.
+// The form needs an HTML elmeent with id = "validation"
+
+const svgSize = "48px";
+const implementations = [
+    {   
+        itemType: "Part",
+        validationRelationshipName: "HC_Part_Validations",
+        states: ["Preliminary","In Review"]
+    }
+    //,
+    //{   
+    //     itemType: "anotherType",
+    //     validationRelationshipName: "anotherRel",
+    //     states: ["Working","Review"]
+    // }
+];
+
+if (top.aras.isNew()) return;
+
+const description = "Check Validation tab";
+const divValidation = document.getElementById("validation");
+divValidation.style.display = "none";
+
+let item = this.document.thisItem;
+let itemType = item.getType();
+let state = item.getProperty("state");
+
+let impl = getImplementation(itemType);
+if (!impl) {
+    console.error("No implementation found for item type: " + itemType);
+    return;
+}
+let validationRelationshipName = impl.validationRelationshipName;
+let isInStateToCheck = getIsInStateToCheck(state,impl.states);
+
+if (isInStateToCheck) {
+    setInProgressImage();
+	let itm = item.newItem();
+	let amlGetValidations = getAmlForRetrieveingValidations();
+    itm.loadAML(amlGetValidations);
+    itm.applyAsync().then(
+        function(resultItem) {
+            if (hasErrorValidation(resultItem)) {
+	            setErrorImage();
+	            return;
+	        }
+	        if (hasWarningValidation(resultItem)) {
+	            setWarningImage();
+	            return;
+	        }
+	        hideValidation();
+	        return;
+        },
+        function(error) {
+            console.error(error.responseText);
+            alert(error.responseText);
+            return;
+        }
+    );
+	return;
+}
+
+function getImplementation(itemType) {
+    for (let i = 0; i < implementations.length; i++) {
+        let impl = implementations[i];
+        if (impl.itemType && impl.itemType === itemType) {
+            return impl;
+        }
+    }
+}
+
+function getIsInStateToCheck(currentState, checkInStates) {
+    if (typeof checkInStates === "string") {
+        if (currentState === checkInStates) {
+            return true;
+        }
+        return false;
+    }
+    if (Array.isArray(checkInStates)) {
+        for (let i = 0; i < checkInStates.length; i++) {
+            let checkInState = checkInStates[i];
+            if (currentState === checkInState) {
+               return true;
+            }
+        }   
+        return false;
+    }
+}
+
+function hasErrorValidation(itemValidations) {
+    return itemResultContains(itemValidations, "Error");
+}
+
+function hasWarningValidation(itemValidations) {
+    return itemResultContains(itemValidations, "Warning");
+}
+
+function hideValidation() {
+    divValidation.style.display = "none";
+}
+
+function getAmlForRetrieveingValidations() {
+    return `<AML><Item 
+        action='get' 
+        type='${itemType}' 
+        id='${item.getID()}'>
+        <Relationships><Item 
+            action='get' 
+            type='${validationRelationshipName}'>
+            </Item>
+        </Relationships>
+        </Item></AML>`;
+}
+
+function itemResultContains(itemValidations, valueToFind) {
+    var validations = itemValidations.getRelationships();
+    for (var i = 0; i < validations.getItemCount(); i++) {
+        var validation = validations.getItemByIndex(i).getRelatedItem();
+        var validationType = validation.getProperty("validation_type");
+        if (validationType == valueToFind) {
+            return true;
+        }
+    }
+	return false;
+}
+
+function setErrorImage() {
+    setImage("Error.svg");
+}
+
+function setWarningImage() {
+    setImage("Warning.svg");
+}
+
+function setInProgressImage() {
+    setImage("in-progress.svg", false);
+}
+
+function setImage(imageName, includeDescription) {
+    let imgPath = `../Solutions/hccore/images/${imageName}`;
+    let style = `style="width:${svgSize};height:${svgSize};"`
+    let imgElement = `<img src='${imgPath}' ${style}></img>`;
+    divValidation.innerHTML = imgElement;
+    if (includeDescription) {
+        divValidation.innerHTML = imgElement+description;    
+    }
+    
+	divValidation.style.display = "inline";
+}
+]]></method_code>
+  <method_type>JavaScript</method_type>
+  <name>HC_ShowValidationOnForm</name>
+ </Item>
+</AML>

@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>HC.Validation</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="IOM">
+      <HintPath>ArasRefAssemblies\IOM.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

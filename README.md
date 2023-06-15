@@ -20,6 +20,7 @@ It works the same way today even though the Aras GUI has changed.
     - [Make validations prevent promotions](#make-validations-prevent-promotions)
   - [Add validation to From](#add-validation-to-from)
     - [Add implementations to HC\_ShowValidationOnForm method](#add-implementations-to-hc_showvalidationonform-method)
+- [Beyond the basics](#beyond-the-basics)
 - [History](#history)
 - [References](#references)
 
@@ -85,6 +86,10 @@ const implementations = [
     // }
 ];
 ```
+
+## Beyond the basics
+
+While this page covers the basics. We can go beyond this in [Beyond the basics](./docs/Beyond-the-basics.md)
 
 ## History
 

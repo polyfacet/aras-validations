@@ -1,0 +1,84 @@
+﻿<AML>
+ <Item type="Method" id="CA826BDB40FB494386129695371E0FAC" action="add">
+  <execution_allowed_to keyed_name="Administrators" type="Identity">2618D6F5A90949BAA7E920D1B04C7EE1</execution_allowed_to>
+  <method_code><![CDATA[        Init();
+        if (_doNotRun) return this;
+
+        Item fullPartItem = GetPartItem(_sourceId);
+
+        var validations = new List<HCValidation.Validation>();
+        validations = GetPartValidations(fullPartItem);
+        
+        if (validations.Count == 0) {
+            // Create all ok validation.
+            validations.Add(new HCValidation.Validation(OKValidationType, "Everything looks good!"));
+        }
+    
+        Item result = HCValidation.ValidationConverter.ConvertValidationToItemResult(Inn, validations, _sourceId);
+        return result;
+
+    } // End Main Method
+
+    private Innovator Inn;
+    private bool _doNotRun = false;
+    private string _sourceId;
+    private const HCValidation.Validation.ValidationType ErrorValidationType = HCValidation.Validation.ValidationType.Error;
+    private const HCValidation.Validation.ValidationType WarningValidationType = HCValidation.Validation.ValidationType.Warning;
+    private const HCValidation.Validation.ValidationType OKValidationType = HCValidation.Validation.ValidationType.Error;
+
+    private void Init() {
+        Inn = this.getInnovator();
+        
+        string returnMode = this.getAttribute("returnMode", "");
+        if (returnMode == "countOnly") _doNotRun = true;
+        
+        _sourceId = this.getProperty("source_id");
+    }
+    
+    private Item GetPartItem(string partId) {
+        // NOTE: Expand after requirements
+        string amlExpandedPart = $@"<AML>
+            <Item action='get' type='Part' id='{partId}'>
+                <Relationships>
+                    <Item action='get' type='Part BOM'></Item>
+                </Relationships>
+            </Item></AML>";
+        Item part = Inn.applyAML(amlExpandedPart);
+        return part;
+    }
+    
+    private List<HCValidation.Validation> GetPartValidations(Item part) {
+        var validations = new List<HCValidation.Validation>();
+        
+        if (part.getProperty("name", "") == "") {
+            var validation = new HCValidation.Validation(ErrorValidationType, "Name is not set");
+            validations.Add(validation);
+        }
+        
+        Item partBoms = part.getItemsByXPath("//Item[@type='Part BOM']");
+        for (int i = 0; i<partBoms.getItemCount(); i++) {
+            Item partBom = partBoms.getItemByIndex(i);
+            Item childPart = partBom.getRelatedItem();
+            string childState = childPart.getProperty("state", "");
+            if (childState != "Released" ) {
+                // Add warning
+                var validation = new HCValidation.Validation(WarningValidationType, childPart, "Child is not Released");
+                validations.Add(validation);
+            }
+        }
+        
+        return validations;
+    }
+
+} // End Main Class
+
+class fin {
+    void method() {
+
+
+
+]]></method_code>
+  <method_type>C#</method_type>
+  <name>HC_PartGetValidations2</name>
+ </Item>
+</AML>

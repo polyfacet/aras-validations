@@ -11,6 +11,7 @@
 		<name>$(binpath)/SixLabors.ImageSharp.dll</name>
 		<name>$(binpath)/Microsoft.Data.SqlClient.dll</name>
 		<name>Microsoft.Extensions.Logging.Abstractions.dll</name>
+		<name>$(binpath)/HC.Validation.dll</name>
 	</ReferencedAssemblies>
 
 	<Support dialect="VB" template="VBScript" />

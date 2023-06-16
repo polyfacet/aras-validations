@@ -8,44 +8,39 @@ public class ValidationConverter
 
     public static Item ConvertValidationToItemResult(Innovator inn, List<Validation> validations, string sourceId)
     {
-        Item res = inn.newItem("Dummy");
-        Item validationItems = default;
+        Item result = inn.newItem("Dummy");
+        
         int i = 0;
-        foreach (Validation validation in validations)
-        {
+        foreach (Validation validation in validations) {
             i += 1;
             Item validationItem = ConvertValidationToItem(inn, validation);
-            if (validationItems is null)
-            {
-                validationItems = validationItem;
-            }
-            else
-            {
-                validationItems.appendItem(validationItem);
-            }
-
-            Item rel = inn.newItem(HC_VALIDATION_TYPE);
-            rel.setID(inn.getNewID());
-            rel.setAttribute("typeId", "dummy");
-            rel.setPropertyItem("related_id", validationItem);
-            rel.removeAttribute("isNew");
-            rel.removeAttribute("isTemp");
-
-            rel.setProperty("source_id", sourceId);
-            res.appendItem(rel);
+            Item relation = CreateValidationRelationship(inn, sourceId, validationItem);
+            result.appendItem(relation);
         }
 
-        if (res.getItemCount() > 1)
-        {
-            res.removeItem(res.getItemByIndex(0));
-            Item res1 = inn.newResult("");
-            res1.dom.SelectSingleNode("//Result").InnerXml = res.dom.SelectSingleNode("//AML").InnerXml;
-            return res1;
+        if (result.getItemCount() > 1) {
+            result = WrapColletionResult(inn, result);
         }
-        else
-        {
-            return res;
-        }
+        return result;
+    }
+
+    private static Item WrapColletionResult(Innovator inn, Item result) {
+        result.removeItem(result.getItemByIndex(0));
+        Item res = inn.newResult("");
+        res.dom.SelectSingleNode("//Result").InnerXml = result.dom.SelectSingleNode("//AML").InnerXml;
+        return res;
+    }
+
+    private static Item CreateValidationRelationship(Innovator inn, string sourceId, Item validationItem) {
+        Item rel = inn.newItem(HC_VALIDATION_TYPE);
+        rel.setID(inn.getNewID());
+        rel.setAttribute("typeId", "dummy");
+        rel.setPropertyItem("related_id", validationItem);
+        rel.removeAttribute("isNew");
+        rel.removeAttribute("isTemp");
+
+        rel.setProperty("source_id", sourceId);
+        return rel;
     }
 
     private static Item ConvertValidationToItem(Innovator inn, Validation validation)

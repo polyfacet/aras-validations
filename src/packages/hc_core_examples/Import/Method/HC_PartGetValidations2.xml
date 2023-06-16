@@ -24,7 +24,7 @@
     private string _sourceId;
     private const HCValidation.Validation.ValidationType ErrorValidationType = HCValidation.Validation.ValidationType.Error;
     private const HCValidation.Validation.ValidationType WarningValidationType = HCValidation.Validation.ValidationType.Warning;
-    private const HCValidation.Validation.ValidationType OKValidationType = HCValidation.Validation.ValidationType.Error;
+    private const HCValidation.Validation.ValidationType OKValidationType = HCValidation.Validation.ValidationType.Ok;
 
     private void Init() {
         Inn = this.getInnovator();

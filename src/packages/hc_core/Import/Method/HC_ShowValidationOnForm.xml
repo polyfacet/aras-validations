@@ -19,8 +19,9 @@ const implementations = [
     //     states: ["Working","Review"]
     // }
 ];
-
-if (top.aras.isNew()) return;
+  
+var isItemNew = aras.isNew(parent.item);
+if (isItemNew) return;
 
 const description = "Check Validation tab";
 const divValidation = document.getElementById("validation");
